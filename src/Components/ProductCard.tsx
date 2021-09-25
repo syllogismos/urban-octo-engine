@@ -7,6 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions'
 import Typography from '@mui/material/Typography';
 import AddSharpIcon from '@mui/icons-material/AddSharp';
+import RemoveSharpIcon from '@mui/icons-material/RemoveSharp';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import { CartItem } from '../Product';
 
@@ -17,6 +18,11 @@ type ProductComponetProps = {
 };
 
 export default function ProductCard({ product, cart, setCart }: ProductComponetProps) {
+  let cartAmount = cart.get(product.productId.value)
+  let displayCartAmount = false;
+  if (cartAmount !== undefined && cartAmount > 0){
+    displayCartAmount = true;
+  }
   return (
     <Card sx={{ width: 200, height: 284 }}>
       <CardMedia
@@ -32,6 +38,12 @@ export default function ProductCard({ product, cart, setCart }: ProductComponetP
         <IconButton aria-label="add to cart" onClick={() => addToCart(product.productId.value, cart, setCart)}>
           <AddSharpIcon />
         </IconButton>
+        <IconButton aria-label="remove from cart" onClick={() => removeFromCart(product.productId.value, cart, setCart)}>
+          <RemoveSharpIcon />
+        </IconButton>
+        {displayCartAmount && 
+          <Typography>{cartAmount}</Typography>
+        }
       </CardActions>
     </Card>
   )
@@ -47,5 +59,13 @@ const addToCart = (productIdValue: string, cart: Map<string, number>, setCart: R
   }
 
   setCart(new Map(cart.set(productIdValue, newCount)))
-  
+}
+
+const removeFromCart = (productIdValue: string, cart: Map<string, number>, setCart: React.Dispatch<React.SetStateAction<Map<string, number>>>) => {
+  let count = cart.get(productIdValue);
+  let newCount = 0
+  if (count !== undefined && count > 0) {
+    newCount = count - 1;
+    setCart(new Map(cart.set(productIdValue, newCount)));
+  }
 }

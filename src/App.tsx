@@ -64,7 +64,7 @@ function App() {
               <Chip icon={<PlaylistAddCheckOutlinedIcon />} label="Clear Filter" onClick={() => setFilter("")} variant={filter === "" ? "outlined" : "filled"}/>
             </Stack>
             <Box mt={2.5}>
-              <ImageList cols={4} rowHeight={400}>
+              <ImageList cols={4} rowHeight={400} gap={5}>
                 {products.map((product) => (
                   <ProductCard product={product} cart={cart} setCart={setCart}/>
                 ))}
