@@ -4,10 +4,8 @@ import './App.css';
 import Button from '@mui/material/Button';
 import jsonData from './products.json';
 import { CartItem, Product } from './Product';
-import MainAppBarOld from './Components/MainAppBarOld';
 import MainAppBar from './Components/MainAppBar';
 import { Container, Stack, Typography, Chip, ImageList, ImageListItem } from '@mui/material';
-import ProductCardOld from './Components/ProductCardOld';
 import ProductCard from './Components/ProductCard';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -41,7 +39,7 @@ function App() {
           <Grid item xs={1}></Grid>
           <Grid item xs={10}>
             <Box mt={1.5}>
-              <Typography>
+              <Typography fontSize={12}>
                 Shop By Category
               </Typography>
             </Box>
