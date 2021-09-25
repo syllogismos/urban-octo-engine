@@ -24,7 +24,7 @@ export default function ProductCard({ product, cart, setCart }: ProductComponetP
     displayCartAmount = true;
   }
   return (
-    <Card sx={{ width: 200, height: 284 }}>
+    <Card sx={{ width: 200, height: 294, marginBottom: 3, boxShadow: 0}}>
       <CardMedia
         component="img"
         height="154"
@@ -32,7 +32,8 @@ export default function ProductCard({ product, cart, setCart }: ProductComponetP
         alt={product.name}
         />
       <CardContent>
-        <Typography fontSize="small">{product.name}</Typography>
+        <Typography fontSize={12} align="center">{product.name}</Typography>
+        <Typography fontSize={14} align="center">{product.price}</Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to cart" onClick={() => addToCart(product.productId.value, cart, setCart)}>
@@ -42,7 +43,7 @@ export default function ProductCard({ product, cart, setCart }: ProductComponetP
           <RemoveSharpIcon />
         </IconButton>
         {displayCartAmount && 
-          <Typography>{cartAmount}</Typography>
+          <Typography color="text.secondary">{cartAmount}</Typography>
         }
       </CardActions>
     </Card>
