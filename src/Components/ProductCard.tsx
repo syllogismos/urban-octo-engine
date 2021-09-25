@@ -8,10 +8,9 @@ import CardActions from '@mui/material/CardActions'
 import Typography from '@mui/material/Typography';
 import AddSharpIcon from '@mui/icons-material/AddSharp';
 import RemoveSharpIcon from '@mui/icons-material/RemoveSharp';
-import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button'
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
-import { CartItem } from '../Product';
 
 type ProductComponetProps = {
   product: Product,
@@ -53,10 +52,6 @@ export default function ProductCard({ product, cart, setCart }: ProductComponetP
           </CardActions>
         }
       </CardContent>
-      
-      
-
-
     </Card>
   )
 }
@@ -69,7 +64,6 @@ const addToCart = (productIdValue: string, cart: Map<string, number>, setCart: R
   } else {
     newCount = 1
   }
-
   setCart(new Map(cart.set(productIdValue, newCount)))
 }
 

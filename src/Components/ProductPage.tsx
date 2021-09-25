@@ -39,18 +39,6 @@ export default function ProductPage() {
                 </Typography>
               </Box>
               <Stack direction="row" spacing={1} mt={1}>
-                {/* <Chip label="Alcohol" variant="filled" />
-                <Chip label="Bakery" variant="outlined" />
-                <Chip label="Dairy & Eggs" variant="outlined" />
-                <Chip label="Drinks" variant="outlined" />
-                <Chip label="Frozen" variant="outlined" />
-                <Chip label="Home & Health" variant="outlined" />
-                <Chip label="Meat, Fish & Protein" variant="outlined" />
-                <Chip label="Pantry" variant="outlined" />
-                <Chip label="Pet Products" variant="outlined" />
-                <Chip label="Prepared" variant="outlined" />
-                <Chip label="Produce" variant="outlined" />
-                <Chip label="Snacks" variant="outlined" /> */}
                 {uniqueCategories.map((cat) => (
                   <Chip label={cat} variant={cat === filter ? "filled" : "outlined"} onClick={() => setFilter(cat)} />
                 ))}
