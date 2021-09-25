@@ -1,23 +1,16 @@
-import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
-import { ThemeProvider } from '@mui/material';
+import Button from '@mui/material/Button';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import ImportContactsOutlinedIcon from '@mui/icons-material/ImportContactsOutlined';
+import ImportContactsIcon from '@mui/icons-material/ImportContacts';
 import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import Avatar from '@mui/material/Avatar'
-import { Label } from '@mui/icons-material';
-
 
 
 
@@ -65,7 +58,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function MainAppBar() {
   return (
     <Box sx={{flexGrow: 1}}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{boxShadow: 0}}>
         <Toolbar>
           <Typography variant="h6" noWrap component="div" sx={{display: {xs: 'none', sm: 'block'}}}>
             Groceries
@@ -80,12 +73,15 @@ export default function MainAppBar() {
             />
           </Search>
           <Box sx={{flexGrow: 1}} />
+          <Box sx={{backgroundColor: "white", mr: 3}}>
+            <Button>Get $20 Off</Button>
+          </Box>
           <Box sx={{display: {xs: 'none', md: 'flex'}}}>
             <IconButton size="large" color="inherit">
               <StorefrontOutlinedIcon />
             </IconButton>
             <IconButton size="large" color="inherit">
-              <ImportContactsOutlinedIcon />
+              <ImportContactsIcon />
             </IconButton>
             <IconButton size="large" color="inherit">
               <SettingsOutlinedIcon />

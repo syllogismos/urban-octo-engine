@@ -9,6 +9,8 @@ import Typography from '@mui/material/Typography';
 import AddSharpIcon from '@mui/icons-material/AddSharp';
 import RemoveSharpIcon from '@mui/icons-material/RemoveSharp';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import Button from '@mui/material/Button'
+import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import { CartItem } from '../Product';
 
 type ProductComponetProps = {
@@ -20,32 +22,41 @@ type ProductComponetProps = {
 export default function ProductCard({ product, cart, setCart }: ProductComponetProps) {
   let cartAmount = cart.get(product.productId.value)
   let displayCartAmount = false;
-  if (cartAmount !== undefined && cartAmount > 0){
+  if (cartAmount !== undefined && cartAmount > 0) {
     displayCartAmount = true;
   }
   return (
-    <Card sx={{ width: 200, height: 294, marginBottom: 3, boxShadow: 0}}>
+    <Card sx={{ width: 200, height: 294, marginBottom: 3, boxShadow: 0 }}>
       <CardMedia
         component="img"
         height="154"
         image={product.imageUrl}
         alt={product.name}
-        />
+      />
       <CardContent>
         <Typography fontSize={12} align="center">{product.name}</Typography>
         <Typography fontSize={14} align="center">{product.price}</Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to cart" onClick={() => addToCart(product.productId.value, cart, setCart)}>
-          <AddSharpIcon />
-        </IconButton>
-        <IconButton aria-label="remove from cart" onClick={() => removeFromCart(product.productId.value, cart, setCart)}>
-          <RemoveSharpIcon />
-        </IconButton>
-        {displayCartAmount && 
-          <Typography color="text.secondary">{cartAmount}</Typography>
+        {!displayCartAmount &&
+          <CardActions>
+            <Button variant="outlined" size="small" startIcon={<ControlPointIcon />} onClick={() => addToCart(product.productId.value, cart, setCart)}>Add to Cart</Button>
+          </CardActions>
         }
-      </CardActions>
+        {displayCartAmount &&
+          <CardActions disableSpacing>
+            <IconButton aria-label="add to cart" size="small" onClick={() => addToCart(product.productId.value, cart, setCart)}>
+              <AddSharpIcon />
+            </IconButton>
+            <IconButton aria-label="remove from cart" size="small" onClick={() => removeFromCart(product.productId.value, cart, setCart)}>
+              <RemoveSharpIcon />
+            </IconButton>
+            <Typography color="text.secondary">{cartAmount}</Typography>
+          </CardActions>
+        }
+      </CardContent>
+      
+      
+
+
     </Card>
   )
 }
