@@ -16,7 +16,7 @@ import PlaylistAddCheckOutlinedIcon from '@mui/icons-material/PlaylistAddCheckOu
 
 function App() {
 
-  const [cart, setCart] = useState([] as CartItem[]);
+  const [cart, setCart] = useState(new Map<string, number>());
   const [filter, setFilter] = useState("");
   const [products, setProducts] = useState(jsonData);
 
@@ -66,7 +66,7 @@ function App() {
             <Box mt={2.5}>
               <ImageList cols={4} rowHeight={400}>
                 {products.map((product) => (
-                  <ProductCard product={product} />
+                  <ProductCard product={product} cart={cart} setCart={setCart}/>
                 ))}
               </ImageList>
             </Box>
