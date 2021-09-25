@@ -12,6 +12,8 @@ import StorefrontOutlinedIcon from '@mui/icons-material/StorefrontOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import Avatar from '@mui/material/Avatar'
 
+import {useHistory} from 'react-router-dom';
+
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -56,6 +58,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function MainAppBar() {
+  const history = useHistory()
+  const handleOnClick = () => history.push('/about');
   return (
     <Box sx={{flexGrow: 1}}>
       <AppBar position="static" sx={{boxShadow: 0}}>
@@ -77,16 +81,16 @@ export default function MainAppBar() {
             <Button>Get $20 Off</Button>
           </Box>
           <Box sx={{display: {xs: 'none', md: 'flex'}}}>
-            <IconButton size="large" color="inherit">
+            <IconButton size="large" color="inherit" onClick={handleOnClick}>
               <StorefrontOutlinedIcon />
             </IconButton>
-            <IconButton size="large" color="inherit">
+            <IconButton size="large" color="inherit" onClick={handleOnClick}>
               <ImportContactsIcon />
             </IconButton>
-            <IconButton size="large" color="inherit">
+            <IconButton size="large" color="inherit" onClick={handleOnClick}>
               <SettingsOutlinedIcon />
             </IconButton>
-            <IconButton size="large" color="inherit">
+            <IconButton size="large" color="inherit" onClick={handleOnClick}>
               <Avatar src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg"/>
             </IconButton>
           </Box>
