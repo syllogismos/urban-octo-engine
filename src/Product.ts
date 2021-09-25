@@ -1,6 +1,6 @@
 
 
-export default interface Product {
+export interface Product {
     "productId": ProductId,
     "name": string,
     "upcCode": string,
@@ -28,15 +28,15 @@ export default interface Product {
     "productUrl": string,
     "itemType": string,
     "perishabilityDays": number,
-    "isExplicityCaseQuantityRequired": boolean,
+    "isExplicitCaseQuantityRequired": boolean,
 }
 
 interface ProductId {
     "value": string
 }
 
-export default interface CartItem {
-    "productId": ProductId,
+export interface CartItem {
+    "productIdValue": string,
     "count": number
 }
 

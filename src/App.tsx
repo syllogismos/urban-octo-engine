@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import Button from '@mui/material/Button';
 import jsonData from './products.json';
-import CartItem from './Product';
+import {CartItem, Product} from './Product';
+
 
 function App() {
 
@@ -11,23 +12,20 @@ function App() {
   console.log(jsonData[0].productId)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
         <Button variant="contained">Hello World</Button>
-      </header>
+        <ProductComponent product = {jsonData[0]}/>
     </div>
   );
+}
+
+type ProductComponetProps = {
+  product: Product;
+};
+
+function ProductComponent({product}: ProductComponetProps) {
+  return (<div>
+    <Button variant="contained">{product.imageUrl}</Button>
+  </div>)
 }
 
 export default App;
