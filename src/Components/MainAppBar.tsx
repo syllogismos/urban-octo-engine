@@ -68,7 +68,7 @@ export default function MainAppBar() {
             Groceries
           </Typography>
           <Search>
-          <SearchIconWrapper>
+            <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
@@ -77,7 +77,7 @@ export default function MainAppBar() {
             />
           </Search>
           <Box sx={{flexGrow: 1}} />
-          <Box sx={{backgroundColor: "#EC6661", mr: 3, borderRadius: '5px'}}>
+          <Box sx={{backgroundColor: "#EC6661", mr: 3, borderRadius: '5px', display: {xs: 'none', sm: 'block'}}}>
             <Button sx={{color: "white"}}>Get $20 Off</Button>
           </Box>
           <Box sx={{display: {xs: 'none', md: 'flex'}}}>

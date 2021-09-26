@@ -28,7 +28,7 @@ export default function ProductPage() {
     uniqueCategories = uniqueCategories.filter(cat => cat !== "");
     return (
       <Grid container spacing={2}>
-        <Grid item xs={10}>
+        <Grid item xs={10} borderRight="solid" borderColor="#777777" sx={{borderWidth:'thin'}}>
           <MainAppBar />
           <Grid container rowSpacing={1} spacing={2}>
             <Grid item xs={1}></Grid>
@@ -65,8 +65,8 @@ export default function ProductPage() {
   
   function Cart() {
     return (
-      <Box>
-        <Typography>Cart</Typography>
+      <Box mt={3}>
+        <Typography align="center" fontSize="large">Cart</Typography>
       </Box>
     )
   }
