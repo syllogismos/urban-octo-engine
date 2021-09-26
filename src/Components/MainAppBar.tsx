@@ -19,9 +19,9 @@ import {useHistory} from 'react-router-dom';
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  backgroundColor: alpha(theme.palette.common.black, 0.15),
   '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: alpha(theme.palette.common.black, 0.25),
   },
   marginRight: theme.spacing(2),
   marginLeft: 0,
@@ -44,7 +44,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
+  color: 'black',
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
@@ -61,10 +61,10 @@ export default function MainAppBar() {
   const history = useHistory()
   const handleOnClick = () => history.push('/about');
   return (
-    <Box sx={{flexGrow: 1}}>
-      <AppBar position="static" sx={{boxShadow: 0}}>
+    <Box sx={{flexGrow: 1, borderStyle: 'solid', borderWidth: 'thin', borderColor: '#D7D7D7', borderTop: "none"}}>
+      <AppBar position="static" sx={{backgroundColor: "white", boxShadow: 0}}>
         <Toolbar>
-          <Typography variant="h6" noWrap component="div" sx={{display: {xs: 'none', sm: 'block'}}}>
+          <Typography variant="h6" noWrap component="div" sx={{display: {xs: 'none', sm: 'block'}, color: "black"}}>
             Groceries
           </Typography>
           <Search>
@@ -77,17 +77,17 @@ export default function MainAppBar() {
             />
           </Search>
           <Box sx={{flexGrow: 1}} />
-          <Box sx={{backgroundColor: "white", mr: 3}}>
-            <Button>Get $20 Off</Button>
+          <Box sx={{backgroundColor: "#EC6661", mr: 3, borderRadius: '5px'}}>
+            <Button sx={{color: "white"}}>Get $20 Off</Button>
           </Box>
           <Box sx={{display: {xs: 'none', md: 'flex'}}}>
-            <IconButton size="large" color="inherit" onClick={handleOnClick}>
+            <IconButton size="large" sx={{color: "7777777"}} onClick={handleOnClick}>
               <StorefrontOutlinedIcon />
             </IconButton>
-            <IconButton size="large" color="inherit" onClick={handleOnClick}>
+            <IconButton size="large" sx={{color: "777777"}} onClick={handleOnClick}>
               <ImportContactsIcon />
             </IconButton>
-            <IconButton size="large" color="inherit" onClick={handleOnClick}>
+            <IconButton size="large" sx={{color: "777777"}} onClick={handleOnClick}>
               <SettingsOutlinedIcon />
             </IconButton>
             <IconButton size="large" color="inherit" onClick={handleOnClick}>
